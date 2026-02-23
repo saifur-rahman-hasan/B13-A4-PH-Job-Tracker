@@ -84,7 +84,6 @@
 
 .btn-interview,
 .btn-rejected {
-    flex: 1;
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     border: 1px solid #d1d5db;
