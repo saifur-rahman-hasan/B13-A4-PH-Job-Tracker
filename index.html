@@ -8,53 +8,48 @@
 	<!-- Tailwind CSS CDN Link -->
 	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Application Styles -->
     <link rel="stylesheet" href="assets/app.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 min-h-screen">
 
+	<!-- Header/Navigation -->
+	<header class="bg-white border-b border-gray-200">
+		<div class="max-w-6xl mx-auto px-6 py-6">
+			<h1 class="text-3xl font-bold text-gray-900">Job Application Tracker</h1>
+		</div>
+	</header>
+	
 	<main>
-		<!-- Header/Navigation -->
-		<header class="bg-white shadow-sm sticky top-0 z-50">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-				<h1 class="text-3xl font-bold text-gray-900">Job Application Tracker</h1>
-			</div>
-		</header>
 
 		<!-- Dashboard Stats Section -->
-		<section class="bg-white">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-					<!-- Total Applications Card -->
-					<div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-md p-6 text-white">
-						<div class="flex items-center justify-between">
-							<div>
-								<p class="text-sm font-medium opacity-90">Total Applications</p>
-								<p class="text-4xl font-bold mt-2" id="totalCount">0</p>
-							</div>
-							<div class="text-5xl opacity-30">📋</div>
+		<section class="bg-white border-b border-gray-200">
+			<div class="max-w-6xl mx-auto px-6 py-8">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<!-- Total Card -->
+					<div class="stat-card">
+						<div class="flex flex-col">
+							<p class="text-gray-600 text-sm font-medium mb-2">Total</p>
+							<p class="text-5xl font-bold text-gray-900" id="totalCount">0</p>
 						</div>
 					</div>
 
-					<!-- Interviews Card -->
-					<div class="bg-gradient-to-br from-green-500 to-green-600 rounded-lg shadow-md p-6 text-white">
-						<div class="flex items-center justify-between">
-							<div>
-								<p class="text-sm font-medium opacity-90">Interviews</p>
-								<p class="text-4xl font-bold mt-2" id="interviewCount">0</p>
-							</div>
-							<div class="text-5xl opacity-30">✅</div>
+					<!-- Interview Card -->
+					<div class="stat-card">
+						<div class="flex flex-col">
+							<p class="text-gray-600 text-sm font-medium mb-2">Interview</p>
+							<p class="text-5xl font-bold text-green-500" id="interviewCount">0</p>
 						</div>
 					</div>
 
 					<!-- Rejected Card -->
-					<div class="bg-gradient-to-br from-red-500 to-red-600 rounded-lg shadow-md p-6 text-white">
-						<div class="flex items-center justify-between">
-							<div>
-								<p class="text-sm font-medium opacity-90">Rejected</p>
-								<p class="text-4xl font-bold mt-2" id="rejectedCount">0</p>
-							</div>
-							<div class="text-5xl opacity-30">❌</div>
+					<div class="stat-card">
+						<div class="flex flex-col">
+							<p class="text-gray-600 text-sm font-medium mb-2">Rejected</p>
+							<p class="text-5xl font-bold text-red-500" id="rejectedCount">0</p>
 						</div>
 					</div>
 				</div>
@@ -62,38 +57,44 @@
 		</section>
 
 		<!-- Available Jobs Section -->
-		<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-			<!-- Section Header -->
-			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
-				<h2 class="text-2xl font-bold text-gray-900">Available Jobs</h2>
-				<p class="text-lg text-gray-600 mt-2 sm:mt-0">
-					<span class="font-semibold" id="jobsCount">0</span> positions
-				</p>
-			</div>
+		<section class="bg-white">
+			<div class="max-w-6xl mx-auto px-6 py-8">
+				<!-- Section Header -->
+				<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+					<h2 class="text-2xl font-bold text-gray-900">Available Jobs</h2>
+					<p class="text-gray-600 mt-4 sm:mt-0" id="tabJobCountContainer">
+						<span class="font-semibold text-gray-900" id="tabJobCount">0</span> jobs
+					</p>
+				</div>
 
-			<!-- Tabs -->
-			<div class="flex flex-wrap gap-2 mb-8 border-b border-gray-200">
-				<button class="tab-btn active px-6 py-3 font-medium text-gray-900 border-b-2 border-blue-500 hover:text-blue-600" data-tab="all">
-					All Jobs
-				</button>
-				<button class="tab-btn px-6 py-3 font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900" data-tab="interview">
-					Interview
-				</button>
-				<button class="tab-btn px-6 py-3 font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900" data-tab="rejected">
-					Rejected
-				</button>
-			</div>
+				<!-- Tabs with Job Counts -->
+				<div class="border-b border-gray-200 mb-8">
+					<div class="flex flex-wrap gap-0">
+						<button class="tab-btn tab-all active px-6 py-4 font-medium text-gray-900 border-b-2 border-blue-500 hover:bg-gray-50 transition-colors" data-tab="all">
+							All <span class="tab-count text-gray-600">8</span>
+						</button>
+						<button class="tab-btn tab-interview px-6 py-4 font-medium text-gray-600 border-b-2 border-transparent hover:bg-gray-50 transition-colors" data-tab="interview">
+							Interview <span class="tab-count text-gray-600">0</span>
+						</button>
+						<button class="tab-btn tab-rejected px-6 py-4 font-medium text-gray-600 border-b-2 border-transparent hover:bg-gray-50 transition-colors" data-tab="rejected">
+							Rejected <span class="tab-count text-gray-600">0</span>
+						</button>
+					</div>
+				</div>
 
-			<!-- Jobs Container -->
-			<div id="jobsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-				<!-- Job cards will be inserted here by JavaScript -->
-			</div>
+				<!-- Jobs Container -->
+				<div id="jobsContainer" class="space-y-4">
+					<!-- Job cards will be inserted here by JavaScript -->
+				</div>
 
-			<!-- Empty State -->
-			<div id="emptyState" class="hidden text-center py-12">
-				<div class="text-6xl mb-4">📭</div>
-				<h3 class="text-2xl font-semibold text-gray-900 mb-2" id="emptyTitle">No jobs available</h3>
-				<p class="text-gray-600" id="emptySubtitle">Check back later for more opportunities</p>
+				<!-- Empty State -->
+				<div id="emptyState" class="hidden text-center py-16">
+					<div class="flex justify-center mb-6">
+						<img src="assets/images/jobs.png" alt="No jobs" class="w-24 h-24">
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-2" id="emptyTitle">No jobs available</h3>
+					<p class="text-gray-600" id="emptySubtitle">Check back soon for new job opportunities</p>
+				</div>
 			</div>
 		</section>
 	</main>
