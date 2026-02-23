@@ -81,6 +81,26 @@ const jobsData = [
         salary: "$95,000 - $125,000",
         description: "Build modern web applications with React and Node.js. Join a creative team that values innovation and collaboration.",
         status: "all"
+    },
+    {
+        id: 9,
+        companyName: "FinTech Global",
+        position: "Software Engineer",
+        location: "Chicago, IL",
+        type: "Full-time",
+        salary: "$105,000 - $135,000",
+        description: "Develop secure financial software systems and work closely with cross-functional teams to deliver scalable fintech solutions.",
+        status: "all"
+    },
+    {
+        id: 10,
+        companyName: "HealthTech Solutions",
+        position: "Frontend Developer",
+        location: "Remote",
+        type: "Full-time",
+        salary: "$95,000 - $120,000",
+        description: "Create responsive and accessible healthcare web applications using modern JavaScript frameworks.",
+        status: "all"
     }
 ];
 
@@ -199,20 +219,26 @@ function createJobCard(job) {
         <p class="job-description">${job.description}</p>
 
         <div class="job-footer">
-            <button class="btn-interview ${job.status === 'interview' ? 'active' : ''}"
-                    onclick="handleInterviewClick(${job.id})"
-                    type="button">
+            <button 
+                class="btn-interview ${job.status === 'interview' ? 'active' : ''}"
+                onclick="handleInterviewClick(${job.id})"
+                type="button"
+            >
                 INTERVIEW
             </button>
-            <button class="btn-rejected ${job.status === 'rejected' ? 'active' : ''}"
-                    onclick="handleRejectedClick(${job.id})"
-                    type="button">
+            <button 
+                class="btn-rejected ${job.status === 'rejected' ? 'active' : ''}"
+                onclick="handleRejectedClick(${job.id})"
+                type="button"
+            >
                 REJECTED
             </button>
-            <button class="btn-delete"
-                    onclick="handleDelete(${job.id})"
-                    type="button"
-                    title="Delete this job">
+            <button 
+                class="btn-delete"
+                onclick="handleDelete(${job.id})"
+                type="button"
+                title="Delete this job"
+            >
                 <i class="fas fa-trash-alt"></i>
             </button>
         </div>
