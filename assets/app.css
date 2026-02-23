@@ -1,0 +1,72 @@
+/* Job Card Styles */
+.job-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button States */
+.btn-interview {
+    transition: all 0.3s ease;
+}
+
+.btn-interview:hover:not(:disabled) {
+    transform: scale(1.02);
+}
+
+.btn-interview.active {
+    background-color: #10b981;
+    color: white;
+}
+
+.btn-rejected {
+    transition: all 0.3s ease;
+}
+
+.btn-rejected:hover:not(:disabled) {
+    transform: scale(1.02);
+}
+
+.btn-rejected.active {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Tab Active State */
+.tab-btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    color: #1f2937;
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge-interview {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.badge-rejected {
+    background-color: #fee2e2;
+    color: #7f1d1d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .job-card {
+        margin: 0 auto;
+    }
+}
