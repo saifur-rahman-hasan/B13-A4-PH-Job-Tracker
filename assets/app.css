@@ -208,9 +208,4 @@
     .job-footer {
         flex-wrap: wrap;
     }
-
-    .btn-delete {
-        flex: 1;
-        min-width: 100%;
-    }
 }
